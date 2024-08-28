@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Performance Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Which School would be the best Choice?</h1>
+        </div>
+        <div class="controls">
+            <form id="filterForm">
+                <label for="goal">Select Goal:</label>
+                <select id="goal" name="goal">
+                    <option value="Max Salary">Max Salary</option>
+                    <option value="Best CAV">Best CAV</option>
+                    <option value="Most Picks">Most Picks</option>
+                </select>
+                <label for="year">Select Year:</label>
+                <select id="year" name="year">
+                    {% for year in years %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+                <label for="position" id="positionLabel" style="display: none;">Select Position:</label>
+                <select id="position" name="position" style="display: none;">
+                    {% for pos in positions %}
+                    <option value="{{ pos }}">{{ pos }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Visualize</button>
+            </form>
+        </div>
+        <div id="visualization-container">
+            <img id="visualization" src="" alt="Visualization">
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

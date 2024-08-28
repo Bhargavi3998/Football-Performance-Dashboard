@@ -1,0 +1,53 @@
+flask_dashboard/
+│
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+│   ├── styles.css
+│   └── scripts.js 
+└── data/
+    └── Book_combined.xlsx
+
+
+Detailed Plan:
+Dashboard Layout:
+The layout will have dropdown menus for selecting the year, goal, and (for Best CAV and Most Picks) the position.
+We’ll use a grid layout to place the school logos inside translucent circles with labels indicating their performance.
+Logic for Each Goal:
+Max Salary: Show the top three schools based on salary for the selected year.
+Best CAV: Include a position dropdown and show the top school for the selected position and year.
+Most Picks: Include a position dropdown and show the school with the most picks for the selected position and year.
+Style the Dashboard:
+Use CSS to create translucent circles, grid positioning, and custom fonts.
+
+
+
+1. Bubble Chart with Multiple Dimensions:
+How It Works: A bubble chart can plot multiple schools, with each bubble’s size representing one metric (e.g., Salary), the color representing another (e.g., CAV), and the position (X and Y axes) representing others (e.g., Pick and School Rank).
+Why It’s Effective: This visualization can simultaneously represent four metrics, allowing you to see patterns, outliers, and clusters among schools.
+How to Implement: Use the scatter() function in matplotlib and vary s (size) for one metric, c (color) for another, and use the axes for remaining metrics.
+2. Radar (Spider) Chart:
+How It Works: A radar chart can plot multiple performance metrics for each school, allowing you to compare their relative strengths. For instance, one axis could be "Salary," another "CAV," and another "Picks."
+Why It’s Effective: It’s great for comparing schools across multiple dimensions. Each school is represented as a polygon, and you can immediately see which metrics they excel in.
+How to Implement: Libraries like matplotlib or plotly make it easy to build radar charts.
+3. Stacked Bar Chart (Grouped by School):
+How It Works: This chart stacks different performance metrics for each school in a single bar. For example, "Salary," "CAV," and "Picks" could be stacked to show the overall contribution of each metric.
+Why It’s Effective: It gives a holistic view of how each school performs across different metrics in a single visual.
+How to Implement: Use bar() in matplotlib with the bottom argument to stack bars for each school.
+4. Heatmap for School Performance:
+How It Works: A heatmap can show schools on one axis and performance metrics (Salary, CAV, Picks) on the other, with color intensity representing the value.
+Why It’s Effective: It allows for quick identification of top-performing schools across different metrics using color coding.
+How to Implement: Use imshow() in matplotlib or seaborn’s heatmap() function.
+5. Ranked Lollipop Chart:
+How It Works: This chart ranks schools by a selected metric (e.g., Salary) using vertical or horizontal lines with circles at the end to emphasize the rank. The size of the circle or color could represent another metric (e.g., CAV or Picks).
+Why It’s Effective: It’s a visually appealing way to show ranked data, highlighting both the order and magnitude of performance.
+How to Implement: Use vlines() and scatter() functions in matplotlib.
+6. Interactive Dashboard with Plotly:
+How It Works: Using Plotly’s interactive charts (like bar charts, scatter plots, or radar charts), you can allow users to hover over data points, filter by year, and drill down into the details.
+Why It’s Effective: It makes the dashboard more interactive and engaging, allowing for a more dynamic exploration of the data.
+How to Implement: Use plotly.express for easy-to-create interactive visualizations and integrate it with Flask.
+7. Sankey Diagram for Flow Analysis:
+How It Works: A Sankey diagram can show how resources (like talent or picks) flow across schools and positions. Each block represents a school, and the flows represent transitions or performance distributions.
+Why It’s Effective: It’s a unique way to visualize flows, giving insights into how different metrics distribute among schools.
+How to Implement: Use plotly.graph_objects.Sankey or matplotlib with mplexporter.
